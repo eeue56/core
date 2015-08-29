@@ -24,6 +24,7 @@ and [`replace`](#replace).
 -}
 
 import Maybe exposing (Maybe)
+import Result exposing (Result)
 import Native.Regex
 
 

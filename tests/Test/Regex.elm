@@ -1,6 +1,7 @@
 module Test.Regex (tests) where
 
 import Basics exposing (..)
+import Result exposing (Result(..))
 
 import Regex exposing (..)
 
