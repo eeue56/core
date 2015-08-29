@@ -47,7 +47,7 @@ Be careful to escape backslashes properly! For example, `"\w"` is escaping the
 letter `w` which is probably not what you want. You probably want `"\\w"`
 instead, which escapes the backslash.
 -}
-regex : String -> Regex
+regex : String -> Result Regex
 regex =
   Native.Regex.regex
 
