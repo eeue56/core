@@ -16,10 +16,10 @@ tests =
         , test "split" <| assertEqual ["a","b,c"] (split (AtMost 1) (comma) "a,b,c")
         , test "find All" <| assertEqual
             ([Match "a" [] 0 1, Match "b" [] 1 2])
-            (find All (case regex "." of Result v -> v) "ab")
+            (find All (case regex "." of Ok v -> v) "ab")
         , test "find All" <| assertEqual
             ([Match "" [] 0 1])
-            (find All (case regex ".*" of Result v -> v) "")
+            (find All (case regex ".*" of Ok v -> v) "")
 
         , test "replace AtMost 0" <| assertEqual             "The quick brown fox"
             (replace (AtMost 0) (vowels) (\_ -> "") "The quick brown fox")
@@ -34,7 +34,7 @@ tests =
             (replace All (vowels) (\_ -> "") "The quick brown fox")
         ]
       
-      vowels = case regex "[aeiou]" of Result x -> x
-      comma = case regex "," of Result x -> x
+      vowels = case regex "[aeiou]" of Ok x -> x
+      comma = case regex "," of Ok x -> x
   in
       suite "Regex" [ simpleTests ]
